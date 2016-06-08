@@ -93,6 +93,15 @@ class Geosuggest extends React.Component {
   }
 
   /**
+   * When the input gets keyPressed
+   */
+  onInputKeyPressEnter() {
+    if (this.props.onKeyPressEnter) {
+      this.props.onKeyPressEnter();
+    }
+  }
+
+  /**
    * When the input gets blurred
    */
   onInputBlur() {
@@ -321,6 +330,7 @@ class Geosuggest extends React.Component {
         value={this.state.userInput}
         onChange={this.onInputChange.bind(this)}
         onFocus={this.onInputFocus.bind(this)}
+        onKeyPressEnter={this.onInputKeyPressEnter.bind(this)}
         onBlur={this.onInputBlur.bind(this)}
         style={this.props.style.input}
         onNext={() => this.activateSuggest('next')}

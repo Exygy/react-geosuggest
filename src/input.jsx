@@ -33,6 +33,9 @@ class Input extends React.Component {
       case 13: // ENTER
         event.preventDefault();
         this.props.onSelect();
+        if (this.props.onKeyPressEnter) {
+          this.props.onKeyPressEnter();
+        }
         break;
       case 9: // TAB
         this.props.onSelect();
